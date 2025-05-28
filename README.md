@@ -1,1 +1,0 @@
-# submission_kedua_machine_learning_trapan
