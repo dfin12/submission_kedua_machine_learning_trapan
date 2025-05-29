@@ -334,6 +334,8 @@ def precision_at_k(game_index, top_k=20):
     return hits / top_k
 ```
 
+Untuk mengevaluasi performa sistem rekomendasi yang dibangun, digunakan fungsi `precision_at_k`, yang menghitung nilai `Precision@K` dari suatu game terhadap rekomendasi yang dihasilkan oleh model. Dalam hal ini, digunakan nilai K = 20 untuk mencerminkan rekomendasi 20 game teratas. Fungsi bekerja dengan mengambil vektor representasi (embedding) dari game target berdasarkan hasil pelatihan autoencoder, lalu menghitung cosine similarity antara vektor tersebut dan seluruh game lainnya dalam dataset. Setelah diperoleh skor kemiripan, dipilih 20 game teratas (kecuali dirinya sendiri) sebagai hasil rekomendasi. Relevansi setiap game direkomendasikan dievaluasi berdasarkan kemiripan tag (`steamspy_tags`) dengan game acuan. Jika setidaknya satu tag cocok, maka itu dihitung sebagai "hit". Precision@20 dihitung sebagai rasio jumlah hit terhadap total 20 rekomendasi, memberikan ukuran seberapa akurat sistem dalam merekomendasikan game yang kontennya relevan.
+
 ```
 sample_indices = np.random.choice(game_df_selected.index, size=1000, replace=False)
 avg_precision = np.mean([precision_at_k(i, top_k=20) for i in sample_indices])
