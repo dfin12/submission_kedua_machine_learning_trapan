@@ -380,6 +380,7 @@ Kode precision_at_k menghitung Precision@K sebagai berikut:
 
 Sebagai contoh, jika dari 20 rekomendasi teratas (K=20), ada 15 game yang memiliki setidaknya satu tag yang sama dengan game acuan, maka:
 
+Precision@20 = 15/20 = 0.75
 
 ### Hasil Evaluasi dan Interpretasi
 
