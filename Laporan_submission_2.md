@@ -10,11 +10,11 @@ Proyek ini bertujuan untuk membangun sistem rekomendasi game menggunakan pendeka
 
 Inti dari pendekatan ini adalah penggunaan model `Autoencoder` yang dibangun dengan `TensorFlow` dan `Keras` untuk mempelajari representasi fitur (embeddings) yang padat dan bermakna dari setiap game. Encoder dari autoencoder yang telah dilatih kemudian digunakan untuk menghasilkan vektor embedding untuk semua game dalam dataset. Kesamaan antar game dihitung menggunakan metrik `cosine similarity` pada embedding tersebut, yang menjadi dasar untuk menghasilkan rekomendasi. Sistem ini dirancang untuk dapat memberikan rekomendasi berdasarkan game input spesifik atau berdasarkan kombinasi filter seperti genre, rentang harga, dan rating minimum. Evaluasi model akan melibatkan analisis kurva `loss` pelatihan dan validasi dari autoencoder, serta pengukuran `precision@k` yang didasarkan pada kesamaan `steamspy_tags` antara game yang dijadikan acuan dengan game-game yang direkomendasikan. Proyek ini diharapkan tidak hanya menghasilkan sistem rekomendasi yang fungsional tetapi juga memberikan wawasan tentang efektivitas penggunaan autoencoder untuk feature learning dalam konteks rekomendasi game berbasis konten.
 
-Penerapan machine learning, khususnya deep learning, dalam sistem rekomendasi berbasis konten telah menunjukkan potensi yang signifikan. Sebagai contoh, studi oleh Ferreira et al. (2020) mendemonstrasikan bagaimana autoencoder dapat digunakan untuk sistem rekomendasi produk, mengatasi masalah data sparsity dan menghasilkan rekomendasi yang relevan [1](https://www.mdpi.com/2076-3417/10/16/5510). Lebih lanjut, Bougteb et al. (2022) mengusulkan sistem rekomendasi hibrida berbasis deep autoencoder yang mampu mempelajari minat pengguna dan merekonstruksi rating yang hilang, menunjukkan performa yang lebih baik pada dataset berdimensi tinggi dibandingkan algoritma hibrida lainnya [2](https://www.igi-global.com/article/a-deep-autoencoder-based-hybrid-recommender-system/297963). Hasil-hasil ini mengindikasikan bahwa pendekatan yang diusulkan dalam proyek ini memiliki dasar yang kuat dan berpotensi memberikan kontribusi positif dalam membantu pemain menemukan game yang paling sesuai dengan preferensi mereka di platform Steam.
+Penerapan machine learning, khususnya deep learning, dalam sistem rekomendasi berbasis konten telah menunjukkan potensi yang signifikan. Sebagai contoh, studi oleh Ferreira et al. (2020) mendemonstrasikan bagaimana autoencoder dapat digunakan untuk sistem rekomendasi produk, mengatasi masalah data sparsity dan menghasilkan rekomendasi yang relevan [[1]](https://www.mdpi.com/2076-3417/10/16/5510). Lebih lanjut, Bougteb et al. (2022) mengusulkan sistem rekomendasi hibrida berbasis deep autoencoder yang mampu mempelajari minat pengguna dan merekonstruksi rating yang hilang, menunjukkan performa yang lebih baik pada dataset berdimensi tinggi dibandingkan algoritma hibrida lainnya [[2]](https://www.igi-global.com/article/a-deep-autoencoder-based-hybrid-recommender-system/297963). Hasil-hasil ini mengindikasikan bahwa pendekatan yang diusulkan dalam proyek ini memiliki dasar yang kuat dan berpotensi memberikan kontribusi positif dalam membantu pemain menemukan game yang paling sesuai dengan preferensi mereka di platform Steam.
 
 Referensi:
-  [1] Rekomendasi Sistem Menggunakan Autoencoder Oleh: Diana Ferreira, Sofia Silva, António Abelha, José Machado (2020) Tersedia di: MDPI
-  [2] Sistem Rekomendasi Hibrida Berbasis Deep Autoencoder Oleh: Yahya Bougteb, Bouchaib Ouhbi, Brahim Frikh, El Bachir Zemmouri (2022) Tersedia di: IGI Global
+- [1] Rekomendasi Sistem Menggunakan Autoencoder Oleh: Diana Ferreira, Sofia Silva, António Abelha, José Machado (2020) Tersedia di: [MDPI](https://www.mdpi.com/2076-3417/10/16/5510)
+- [2] Sistem Rekomendasi Hibrida Berbasis Deep Autoencoder Oleh: Yahya Bougteb, Bouchaib Ouhbi, Brahim Frikh, El Bachir Zemmouri (2022) Tersedia di: [IGI](https://www.igi-global.com/article/a-deep-autoencoder-based-hybrid-recommender-system/297963) Global
 
 ## Business Understanding
 
@@ -102,4 +102,13 @@ Berikut adalah beberapa langkah eksplorasi data yang dilakukan untuk memahami ka
 
 ## Data Preparation
 
-### Menghapus fitur yang tidak digunakan 
+### Pemilihan fitur dan Penanganan Missing Values
+
+#### Pemilihan fitur
+```
+game_df_selected = game_df[['name', 'genres', 'steamspy_tags', 'price', 'positive_ratings', 'negative_ratings']].copy()
+```
+Langkah pertama dari 
+```
+game_df_selected.dropna(inplace=True)
+```
