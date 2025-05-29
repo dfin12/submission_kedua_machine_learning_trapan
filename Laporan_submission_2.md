@@ -269,11 +269,57 @@ recommend(game_name="Counter-Strike")
 
 Sistem rekomendasi dijalankan dengan input berupa nama game "Counter-Strike" untuk mencari 20 game yang paling mirip berdasarkan representasi laten yang telah dipelajari oleh model autoencoder. Dalam hal ini, sistem menggunakan cosine similarity untuk mengukur kedekatan antara vektor representasi game "Counter-Strike" dan seluruh game lainnya. Hasil yang diperoleh merupakan daftar game dengan konten yang paling relevan, yang umumnya berasal dari genre Action, serta menampilkan game dengan gaya permainan serupa. Tabel berikut menyajikan top 20 rekomendasi beserta nama game, genre, harga, dan skor rating-nya:
 
+| Name                                           | Genres                      | Price | Ratings  |
+|------------------------------------------------|-----------------------------|-------|----------|
+| Counter-Strike                                 | [Action]                    | 7.19  | 0.973888 |
+| Counter-Strike: Source                         | [Action]                    | 7.19  | 0.956362 |
+| Call of Duty® 4: Modern Warfare®               | [Action]                    | 19.99 | 0.913995 |
+| Call of Duty®: Modern Warfare® 2               | [Action]                    | 19.99 | 0.913925 |
+| Unreal Tournament 3 Black                      | [Action]                    | 13.99 | 0.896731 |
+| BioShock Infinite                              | [Action]                    | 19.99 | 0.953823 |
+| Counter-Strike: Condition Zero                 | [Action]                    | 7.19  | 0.893871 |
+| Outlaws + A Handful of Missions                | [Action]                    | 4.79  | 0.931034 |
+| Half-Life 2: Deathmatch                        | [Action]                    | 3.99  | 0.884384 |
+| Epic Snails                                    | [Action, Early Access]      | 0.00  | 0.938461 |
+| AMID EVIL                                      | [Action, Early Access]      | 15.49 | 0.983108 |
+| Aim Trainer 3D                                 | [Action, Early Access]      | 9.29  | 0.999990 |
+| Joint Operations: Combined Arms Gold           | [Action]                    | 14.99 | 0.876812 |
+| PAYDAY™ The Heist                              | [Action]                    | 10.99 | 0.931868 |
+| F.E.A.R.                                       | [Action]                    | 35.96 | 0.935673 |
+| Aliens vs. Predator™                           | [Action]                    | 9.99  | 0.888471 |
+| QUAKE Mission Pack 1: Scourge of Armagon       | [Action]                    | 2.49  | 0.940367 |
+| ShootMania Storm                               | [Action]                    | 16.99 | 0.865154 |
+| Tom Clancy's Ghost Recon® Desert Siege™        | [Action]                    | 4.29  | 0.944444 |
+| SUSHIDO VS ZOMBIES                             | [Violent, Action]           | 2.89  | 0.999990 |
+
 ```
 recommend(genre="Action")
 ```
 
 Sistem rekomendasi juga dapat digunakan untuk mencari daftar game berdasarkan preferensi genre tertentu tanpa menyebutkan nama game tertentu. Dalam contoh ini, parameter genre diatur ke nilai "Action", sehingga sistem akan memfilter seluruh data game dan hanya mempertimbangkan game yang memiliki genre "Action". Selanjutnya, sistem menghitung rata-rata dari representasi embedding game bergenre tersebut untuk menghasilkan query vektor, yang kemudian dibandingkan dengan semua game menggunakan cosine similarity. Hasilnya adalah 20 game teratas yang paling mirip secara semantik dengan genre "Action", sebagaimana ditampilkan dalam tabel berikut:
+
+| Name                          | Genres                                                         | Price | Ratings  |
+|-------------------------------|----------------------------------------------------------------|-------|----------|
+| Mushroom Heroes               | [Action, Adventure, Casual, Free to Play, Indie]              | 0.00  | 0.827068 |
+| Aqua Lungers                  | [Action, Adventure, Casual, Indie, Racing, Early Access]      | 5.79  | 0.916666 |
+| One Ping Only                 | [Action, Adventure, Casual, Free to Play, Indie]              | 0.00  | 0.908108 |
+| Abrakadaboom                  | [Action, Adventure, Casual, Indie, Early Access]              | 15.40 | 0.999990 |
+| Animosity                     | [Violent, Action, Adventure, Casual, Indie, Early Access]     | 7.19  | 0.999998 |
+| King Rabbit                   | [Action, Adventure, Casual, Free to Play, Indie]              | 0.00  | 0.913043 |
+| Dandy & Randy                 | [Action, Adventure, Casual, Indie, Early Access]              | 6.19  | 0.999998 |
+| ShyChess                      | [Sexual Content, Nudity, Violent, Gore, Action, Adventure]    | 1.69  | 0.827586 |
+| Echo Nine                     | [Action, Adventure, Casual, Indie, Early Access]              | 3.99  | 0.999990 |
+| Acid Flip                     | [Action, Adventure, Casual, Indie, Early Access]              | 3.99  | 0.999990 |
+| Intersolar Overdrive         | [Action, Adventure, Casual, Indie, Early Access]              | 3.99  | 0.999990 |
+| RoboBunnies In Space!        | [Action, Adventure, Casual, Indie, Early Access]              | 2.89  | 0.999997 |
+| Superior Wizards              | [Action, Adventure, Casual, Indie, Early Access]              | 2.89  | 0.999997 |
+| MonteCube Dodge               | [Action, Adventure, Casual, Indie, Early Access]              | 2.09  | 0.999995 |
+| Telecube Nightmare            | [Action, Adventure, Casual, Indie, Early Access]              | 2.09  | 0.999997 |
+| Impossible Jumpy Quest        | [Action, Adventure, Casual, Indie, Early Access]              | 1.69  | 0.999995 |
+| The Impure                    | [Action, Adventure, Casual, Indie, Early Access]              | 3.99  | 0.962963 |
+| Visceral Cubes                | [Violent, Gore, Action, Adventure, Casual, Indie]             | 1.69  | 0.833333 |
+| Zeon 25                       | [Action, Adventure, Casual, Indie, Early Access]              | 2.89  | 0.933333 |
+| Terrorarium                   | [Action, Adventure, Casual, Indie, Strategy, Early Access]    | 7.19  | 0.999998 |
 
 ```
 recommend(price_range=(0, 10), min_rating=0.9)
@@ -281,6 +327,28 @@ recommend(price_range=(0, 10), min_rating=0.9)
 
 Sistem rekomendasi juga dapat dikustomisasi berdasarkan preferensi harga dan kualitas game. Dalam contoh ini, pengguna tidak menyebutkan nama game atau genre tertentu, tetapi memberikan batasan harga antara 0 hingga 10 dan rating minimal 0.9. Sistem pertama-tama memfilter seluruh game berdasarkan kriteria tersebut, lalu menghitung rata-rata dari representasi vektor embedding game hasil filter tersebut untuk membentuk query vektor. Selanjutnya, sistem menghitung kemiripan (cosine similarity) antara vektor query tersebut dengan seluruh embedding game, dan mengembalikan 20 rekomendasi teratas berdasarkan skor kemiripan. Hasil dari pemanggilan fungsi ini ditunjukkan pada tabel berikut:
 
+| Name                            | Genres                                                | Price | Ratings  |
+|---------------------------------|--------------------------------------------------------|-------|----------|
+| Octopus Bar                     | [Action, Adventure, Casual, Free to Play, Indie]      | 0.00  | 0.947368 |
+| Roundabout                      | [Action, Adventure, Casual, Indie]                    | 6.99  | 0.932018 |
+| Ara Fell                        | [Action, Adventure, Casual, Indie, RPG]               | 6.99  | 0.954145 |
+| SanctuaryRPG: Black Edition     | [Action, Adventure, Casual, Indie, RPG, Strategy]     | 5.79  | 0.926941 |
+| Unturned                        | [Action, Adventure, Casual, Free to Play, Indie]      | 0.00  | 0.902850 |
+| Music Racer                     | [Action, Casual, Indie, Racing]                       | 1.69  | 0.922638 |
+| R Academy                       | [Adventure, Casual, Indie]                            | 4.79  | 0.999995 |
+| Marie's Room                    | [Adventure, Casual, Free to Play, Indie]              | 0.00  | 0.948098 |
+| Food Drive: Race against Hunger| [Action, Casual, Free to Play, Indie, Early Access]   | 0.00  | 0.922078 |
+| We Know the Devil              | [Adventure, Casual, Indie]                            | 5.59  | 0.918317 |
+| Escape Goat 2                   | [Action, Casual, Indie]                               | 6.99  | 0.970874 |
+| Chicken Assassin: Reloaded      | [Action, Casual, Indie, RPG]                          | 3.99  | 0.944898 |
+| Project Rhombus                 | [Action, Casual, Free to Play, Indie]                 | 0.00  | 0.926690 |
+| Beat Hazard                     | [Action, Casual, Indie]                               | 6.99  | 0.950483 |
+| DungeonRift                     | [Action, Casual, Indie, RPG, Early Access]            | 6.99  | 0.906250 |
+| Rollers of the Realm            | [Action, Adventure, Casual, Indie, RPG]               | 6.99  | 0.902041 |
+| Cat Burglar: A Tail of Purrsuit | [Adventure, Casual, Indie]                            | 2.89  | 0.936073 |
+| Aviators                        | [Action, Casual, Indie, Sports, Early Access]         | 1.99  | 0.999990 |
+| Misao: Definitive Edition       | [Adventure, Casual, Indie]                            | 3.99  | 0.977654 |
+| Bubbles the Cat                 | [Action, Adventure, Indie]                            | 5.79  | 0.999999 |
 
 ## Evaluation 
 
@@ -292,7 +360,7 @@ Precision@K didefinisikan sebagai proporsi dari K item teratas yang direkomendas
 
 Secara matematis:
 
-
+Precision@K = (Jumlah item relevan dalam rekomendasi) / K 
 
 Dalam konteks proyek ini:
 - Satu game dijadikan acuan (query).
@@ -342,7 +410,7 @@ avg_precision = np.mean([precision_at_k(i, top_k=20) for i in sample_indices])
 print(f"Average Precision@20: {avg_precision:.4f}")
 ```
 
-
+Untuk mengevaluasi performa sistem rekomendasi yang telah dibangun, digunakan metrik `Precision@20`, yaitu persentase item relevan dalam 20 rekomendasi teratas yang diberikan oleh model. Evaluasi dilakukan dengan mengambil 1000 game secara acak dari dataset menggunakan kode `sample_indices = np.random.choice(game_df_selected.index, size=1000, replace=False)`. Untuk masing-masing game tersebut, fungsi `precision_at_k` menghitung sejauh mana rekomendasi memiliki kemiripan tag (dalam hal ini `steamspy_tags`) dengan game acuan. Nilai `Precision@20` dari semua sampel kemudian dirata-ratakan dengan kode `avg_precision = np.mean([precision_at_k(i, top_k=20) for i in sample_indices])`, sehingga menghasilkan nilai rata-rata `Precision@20` sebesar 0.9702. Hasil ini menunjukkan bahwa sekitar 97,02% dari rekomendasi yang diberikan model memiliki minimal satu tag yang sama dengan game acuan, yang mencerminkan tingkat relevansi yang sangat tinggi dari sistem rekomendasi berbasis representasi vektor game yang diperoleh melalui autoencoder.
 
 ## Referensi
 [1] Rekomendasi Sistem Menggunakan Autoencoder Oleh: Diana Ferreira, Sofia Silva, António Abelha, José Machado (2020) Tersedia di: [MDPI](https://www.mdpi.com/2076-3417/10/16/5510)
