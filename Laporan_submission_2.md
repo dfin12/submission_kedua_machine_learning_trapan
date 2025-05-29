@@ -87,3 +87,19 @@ Dataset yang digunakan, yaitu steam.csv, terdiri dari 27.075 baris (game) dan 18
 
 ### Exploratory Data Analysis
 
+Berikut adalah beberapa langkah eksplorasi data yang dilakukan untuk memahami karakteristik dataset:
+
+- *Pengecekan Tipe Data*: Tipe data untuk setiap kolom diperiksa menggunakan `game_df.info()`. Ini membantu dalam mengenali variabel yang bersifat numerik dan kategorikal, serta mengidentifikasi kemungkinan masalah terkait tipe data yang tidak sesuai untuk analisis selanjutnya.
+- *Statistika Deskriptif*: Statistik deskriptif seperti rata-rata, median, nilai minimum, maksimum, dan deviasi standar dihitung (`game_df.describe()`) untuk memberikan gambaran umum mengenai sebaran nilai pada variabel numerik. Ini memberikan wawasan awal tentang variasi keterampilan pemain dan distribusinya.
+- *Menampilkan 5 data teratas*: Menampilkan 5 data teratas menggunakan `game_df.head()`. Ini membantu dalam visualisasi\gambaran isi dari dataset.
+- *Pengecekan Missing Values*: Dilakukan perhitungan jumlah nilai yang hilang (`game_df. isnull(). sum()`). Sesuai instruksi, terungkap bahwa ada beberapa kolom yang memiliki nilai yang hilang, berikut fitur yang masih memiliki data NaN,
+  ```
+  developer	1
+  publisher	14
+  ```
+- *Pengecekan Duplikasi Data*: Dilakukan pemeriksaan terhadap baris yang mungkin terduplikasi (`game_df[game_df. duplicated()]`). Dari hasil eksplorasi awal, tidak ditemukan baris yang terduplikasi, yang menunjukkan bahwa setiap entri adalah representasi pemain yang unik.
+- *Visualisasi top 5 genre*: Visualisasi ini menampilkan lima genre game teratas berdasarkan jumlah game yang tersedia dalam dataset. Terlihat jelas bahwa "Indie" mendominasi dengan jumlah game sebanyak 19.421, jauh melampaui genre lainnya. Diikuti oleh "Action" dengan 11.903 game, "Casual" dengan 10.210 game, dan "Adventure" dengan 10.032 game. Genre "Strategy" berada di posisi kelima dengan 5.247 game. Data ini memberikan pemahaman awal tentang preferensi genre yang paling banyak direpresentasikan dalam kumpulan data ini.
+
+## Data Preparation
+
+### Menghapus fitur yang tidak digunakan 
