@@ -339,7 +339,7 @@ Untuk mengevaluasi performa sistem rekomendasi yang dibangun, digunakan fungsi `
 ```
 sample_indices = np.random.choice(game_df_selected.index, size=1000, replace=False)
 avg_precision = np.mean([precision_at_k(i, top_k=20) for i in sample_indices])
-print(f"Average Precision@10: {avg_precision:.4f}")
+print(f"Average Precision@20: {avg_precision:.4f}")
 ```
 
 
