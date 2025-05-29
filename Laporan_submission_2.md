@@ -14,7 +14,7 @@ Penerapan machine learning, khususnya deep learning, dalam sistem rekomendasi be
 
 Referensi:
 - [1] Rekomendasi Sistem Menggunakan Autoencoder Oleh: Diana Ferreira, Sofia Silva, António Abelha, José Machado (2020) Tersedia di: [MDPI](https://www.mdpi.com/2076-3417/10/16/5510)
-- [2] Sistem Rekomendasi Hibrida Berbasis Deep Autoencoder Oleh: Yahya Bougteb, Bouchaib Ouhbi, Brahim Frikh, El Bachir Zemmouri (2022) Tersedia di: [IGI](https://www.igi-global.com/article/a-deep-autoencoder-based-hybrid-recommender-system/297963) Global
+- [2] Sistem Rekomendasi Hibrida Berbasis Deep Autoencoder Oleh: Yahya Bougteb, Bouchaib Ouhbi, Brahim Frikh, El Bachir Zemmouri (2022) Tersedia di: [IGI Global](https://www.igi-global.com/article/a-deep-autoencoder-based-hybrid-recommender-system/297963)
 
 ## Business Understanding
 
@@ -108,7 +108,19 @@ Berikut adalah beberapa langkah eksplorasi data yang dilakukan untuk memahami ka
 ```
 game_df_selected = game_df[['name', 'genres', 'steamspy_tags', 'price', 'positive_ratings', 'negative_ratings']].copy()
 ```
-Langkah pertama dari 
+Langkah pertama yaitu  memilih subset kolom tertentu dari DataFrame `game_df` yang asli. Kolom yang dipilih adalah `name`, `genres`, `steamspy_tags`, `price`, `positive_ratings`, dan `negative_ratings`. Hasil pemilihan ini kemudian disimpan dalam DataFrame baru bernama `game_df_selected`. Penggunaan `.copy()` memastikan bahwa `game_df_selected` adalah salinan independen, sehingga perubahan pada `game_df_selected` tidak akan mempengaruhi game_df asli. Alasan diperlukannya :
+- Mengurangi Kompleksitas Model: Dengan hanya memilih fitur yang relevan, kita dapat mengurangi dimensi data, yang pada gilirannya dapat mempercepat proses pelatihan model dan membuatnya lebih mudah diinterpretasikan.
+- Menghilangkan Fitur Tidak Relevan/Redundan: Data mentah seringkali berisi kolom yang tidak relevan atau redundan untuk tujuan analisis kita. Menghapusnya dapat meningkatkan kualitas model.
+- Mengurangi Noise: Fitur yang tidak relevan bisa menjadi "noise" yang dapat mengganggu kinerja model. Dengan menghapusnya, kita dapat membantu model fokus pada informasi yang paling penting.
+- Menghemat Memori: Memuat dan memproses seluruh dataset dengan banyak kolom yang tidak diperlukan bisa memakan banyak memori. Pemilihan fitur membantu menghemat sumber daya komputasi.
+
+#### Penanganan Missing Values
 ```
 game_df_selected.dropna(inplace=True)
 ```
+Setelah memilih kolom yang relevan, langkah selanjutnya adalah menangani nilai-nilai yang hilang (missing values) dalam `game_df_selected`. Metode `dropna(inplace=True)` digunakan untuk menghapus seluruh baris dari DataFrame `game_df_selected` jika ada setidaknya satu nilai kosong (NaN) di salah satu kolom yang dipilih. Parameter `inplace=True` berarti perubahan (penghapusan baris) akan langsung diterapkan pada DataFrame `game_df_selected` itu sendiri, tanpa perlu menetapkan hasilnya kembali ke variabel. Alasan diperlukannya:
+- Mencegah Error Pemodelan: Sebagian besar algoritma machine learning tidak dapat memproses data yang mengandung nilai kosong dan akan menghasilkan error. Menghapus baris yang memiliki nilai kosong adalah cara cepat untuk mengatasi masalah ini.
+- Memastikan Integritas Data: Meskipun penghapusan baris dapat mengurangi ukuran dataset, ini memastikan bahwa setiap entri data yang digunakan dalam analisis atau pemodelan memiliki semua informasi yang diperlukan untuk kolom-kolom yang telah dipilih.
+- Menghindari Bias: Terkadang, nilai yang hilang dapat mengindikasikan pola tertentu. Jika tidak ditangani, hal ini bisa menyebabkan bias dalam model. Namun, dalam kasus ini, penghapusan baris adalah pendekatan yang lebih sederhana yang mengasumsikan bahwa kehilangan data adalah acak atau dapat diterima.
+
+### 
