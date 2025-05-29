@@ -13,8 +13,8 @@ Inti dari pendekatan ini adalah penggunaan model `Autoencoder` yang dibangun den
 Penerapan machine learning, khususnya deep learning, dalam sistem rekomendasi berbasis konten telah menunjukkan potensi yang signifikan. Sebagai contoh, studi oleh Ferreira et al. (2020) mendemonstrasikan bagaimana autoencoder dapat digunakan untuk sistem rekomendasi produk, mengatasi masalah data sparsity dan menghasilkan rekomendasi yang relevan [1](https://www.mdpi.com/2076-3417/10/16/5510). Lebih lanjut, Bougteb et al. (2022) mengusulkan sistem rekomendasi hibrida berbasis deep autoencoder yang mampu mempelajari minat pengguna dan merekonstruksi rating yang hilang, menunjukkan performa yang lebih baik pada dataset berdimensi tinggi dibandingkan algoritma hibrida lainnya [2](https://www.igi-global.com/article/a-deep-autoencoder-based-hybrid-recommender-system/297963). Hasil-hasil ini mengindikasikan bahwa pendekatan yang diusulkan dalam proyek ini memiliki dasar yang kuat dan berpotensi memberikan kontribusi positif dalam membantu pemain menemukan game yang paling sesuai dengan preferensi mereka di platform Steam.
 
 Referensi:
-[1] Rekomendasi Sistem Menggunakan Autoencoder Oleh: Diana Ferreira, Sofia Silva, António Abelha, José Machado (2020) Tersedia di: MDPI
-[2] Sistem Rekomendasi Hibrida Berbasis Deep Autoencoder Oleh: Yahya Bougteb, Bouchaib Ouhbi, Brahim Frikh, El Bachir Zemmouri (2022) Tersedia di: IGI Global
+  [1] Rekomendasi Sistem Menggunakan Autoencoder Oleh: Diana Ferreira, Sofia Silva, António Abelha, José Machado (2020) Tersedia di: MDPI
+  [2] Sistem Rekomendasi Hibrida Berbasis Deep Autoencoder Oleh: Yahya Bougteb, Bouchaib Ouhbi, Brahim Frikh, El Bachir Zemmouri (2022) Tersedia di: IGI Global
 
 ## Business Understanding
 
